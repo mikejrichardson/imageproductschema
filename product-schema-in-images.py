@@ -11,11 +11,16 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.sidebar.title("Settings")
 dataforseoapiemail = st.sidebar.text_input("Data for SEO email")
 dataforseoapipass = st.sidebar.text_input("Data for SEO API key")
-
+country = st.sidebar.selectbox('Which country would you like SERPs to be from', ('UK', 'US'))
 keywords = st.sidebar.text_area("Keywords")
 searchbutton = st.sidebar.button("Search");
 st.title("What % of images have product schema?")
 st.markdown("Find out what proportion of images for various SERPs are marked up with product schema. The data will look at the % of the top 100 results, and also the top 10.\n\nYou will need a DataforSEO API key to use this tool. You can <a href='https://app.dataforseo.com/register'>sign up to DataforSEO</a> and get free trial credit (enough for around 300 keywords). Once you have registered, you can see your credentials in your dashboard.",unsafe_allow_html=True)
+
+if country == "UK":
+	countrycode = 2826
+elif country == "US":
+	countrycode = 2840
 
 if (searchbutton):
 	with st.spinner("Loading..."):
@@ -38,7 +43,7 @@ if (searchbutton):
 					post_data = dict()
 					post_data[len(post_data)] = dict(
 						language_code="en",
-						location_code=2826,
+						location_code=countrycode,
 						keyword=line
 					)
 
