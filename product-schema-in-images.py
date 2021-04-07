@@ -10,7 +10,7 @@ from client import RestClient
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.sidebar.title("Settings")
 dataforseoapiemail = st.sidebar.text_input("Data for SEO email")
-dataforseoapipass = st.sidebar.text_input("Data for SEO API key")
+dataforseoapipass = st.sidebar.text_input("Data for SEO API password")
 country = st.sidebar.selectbox('Which country would you like SERPs to be from', ('UK', 'US'))
 keywords = st.sidebar.text_area("Keywords")
 searchbutton = st.sidebar.button("Search");
